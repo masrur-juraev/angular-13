@@ -1,0 +1,38 @@
+<div class="container custom-container-2">
+  <div class="no-data text-center" *ngIf="users.length == 0">
+    <p>There is no user added yet!</p>
+  </div>
+
+  <div *ngIf="users.length !== 0">
+    <h3 class="mb-3 text-center">User List</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Website</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users;">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+          <td>
+            <span class="edit" style="cursor: pointer" (click)="onEditUser(user)">
+              Edit
+            </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
